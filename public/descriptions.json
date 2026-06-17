@@ -1,0 +1,65 @@
+[
+    {
+        "panoid": "node55",
+        "description": "Holy water bucket\n\nTYPE: Holy water bucket\nAUTHOR: Venetian workshop\nDATE: 15th or 16th century\nMATERIAL AND TECHNIQUE: Embossed copper and matt enamel paint\nMEASUREMENTS: Height 14 cm, diameter at the base 11 cm.\n\nBase: glazed blue with gold scale motifs. Cup: glazed blue and white with golden vegetable motifs.",
+        "theta_x": 336,
+        "theta_y": -10.5,
+        "fov": 32.5
+    },
+    {
+        "panoid": "node19",
+        "description": "Title: The Shepherd Boy's Rest\nSculpture\n\nTYPE: Sculpture\nAUTHOR: Raffaele Beliazzi\nDATE: 1879\nMATERIAL AND TECHNIQUE: Marble\nMEASURES: 60x140x45 cm\n\nShows a shepherd boy resting, depicting social commentary on child exploitation. Signed by the artist and part of the picture gallery since 1917.",
+        "theta_x": 0.7,
+        "theta_y": -33,
+        "fov": 42
+    },
+    {
+        "panoid": "node43",
+        "description": "Plates\n\nTYPE: Plates\nAUTHOR: Manufacture of Sèvres\nDATE: uncertain between the second half of the 18th century and the first half of the 19th century.\nMATERIAL AND TECHNIQUE: Gilded bronze and porcelain.\nMEASUREMENTS: Diameter of 25 cm.\n\nDecorative plates with portraits of Louis XVI and Marie Antoinette. Likely a copy from the Bourbon restoration era.",
+        "theta_x": -1.1,
+        "theta_y": -14.7,
+        "fov": 35
+    },
+    {
+        "panoid": "node77",
+        "description": "Musical instrument - violin\n\nTYPE: Musical instrument - violin\nAUTHOR: Giuseppe Odoardi known as Villan d'Ascoli\nDATE: second half of the 18th century\nMATERIAL AND TECHNIQUE: Carved wood and varnishing\nMEASUREMENTS: 25.5x14.8 cm.\n\nStradivarian violin with unique features such as carved curl and F-shaped slits on the sides of the bridge.",
+        "theta_x": -26.6,
+        "theta_y": -13,
+        "fov": 12
+    },
+    {
+        "panoid": "node55",
+        "description": "Reliquary\n\nTYPE: Reliquary\nAUTHOR: Ascoli area\nDATE: about XV century\nMATERIAL AND TECHNIQUE: Golden copper and enamels\n\nLinked to Ascoli's goldsmith production, with engraved plant motifs and a statuette of Saint Catherine of Alexandria.",
+        "theta_x": 336,
+        "theta_y": -10.5,
+        "fov": 32.5
+    },
+    {
+        "panoid": "node16",
+        "description": "Title: Amorous Walk\nPainting by Giuseppe Pelizza da Volpedo\n\nTYPE: Painting by Giuseppe Pelizza da Volpedo\nDATE: around 1901\nMATERIAL AND TECHNIQUE: Oil on Canvas\nMEASUREMENTS: diameter of 100 cm\n\nPart of the Idilli project, depicting an amorous scene in the nature with pointillist technique and chiaroscuro.",
+        "theta_x": -1.43,
+        "theta_y": -1.43,
+        "fov": 85
+    },
+    {
+        "panoid": "node15",
+        "description": "Title: Portrait\nPainting by Antonio Mancini\n\nTYPE: Painting by Antonio Mancini\nDATE: first quarter of the 20th century\nMATERIAL AND TECHNIQUE: Oil on Canvas\nMEASUREMENTS: 45x43 cm\n\nKnown for dense and material color, often mixing materials like mirrors and confetti.",
+        "theta_x": -2.07,
+        "theta_y": -2.95,
+        "fov": 50
+    },
+    {
+        "panoid": "node35",
+        "description": "Title: Annunciation\nPainting by Guido Reni\n\nTYPE: Painting by Guido Reni\nDATE: around 1628-1629\nMATERIAL AND TECHNIQUE: Oil on Canvas\nMEASUREMENTS: 237x154 cm\n\nCommissioned for the altar of the chapel in the church of 'Santa Maria della Carità'. Represents the Annunciation with Mary and the angel, notable for its composition and lighting.\n\nArtist\n<b> Guido Reni </b> <br> (Bologna 1574 - 1642) <br> <br>\nOne of the greatest painters of seventeenth-century classicism. Studied under the Carraccis and gained fame for works like 'Atalanta and Ippomene'. His style evolved from mannerism to personal expression, seen in works like 'Madonna del Rosario'. Died in Bologna in 1642.",
+        "theta_x": 18.47,
+        "theta_y": -0.05,
+        "fov": 90
+    },
+    {
+        "panoid": "node91",
+        "description": "Title: Saint Francis receives the stigmata\nPainting by Tiziano Vecellio\n\nTYPE: Painting by Tiziano Vecellio\nDATE: around 1561\nMATERIAL AND TECHNIQUE: Oil on Canvas\nMEASUREMENTS: 298x177 cm\n\nCommissioned by Desiderio Guidoni for the chapel of the Guidoni family. Depicts the stigmata of St. Francis, with luminous rays from Christ. Noted for its use of light and color.\n\nArtist\n<b> Tiziano Vecellio </b> <br> (Pieve di Cadore 1488/1490 - Venice 1576) <br> <br>\nUnanimously recognized as one of the greatest painters in history. A versatile artist, he excelled in sacred, mythological, and portrait painting. Renowned for his innovation and entrepreneurial spirit, he transformed Venetian painting and influenced artists like Tintoretto and Veronese.",
+        "theta_x": 15,
+        "theta_y": 0.9,
+        "fov": 74
+    }
+]

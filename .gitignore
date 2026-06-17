@@ -1,0 +1,4 @@
+.env
+.DS_Store
+public/skin.js
+public/pano2vr_player.js

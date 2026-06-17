@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <style type="text/css" title="Default">
+        /* fullscreen */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            z-index: 1;
+        }
+
+        #userInputForm {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            z-index: 2;
+            visibility: hidden; /* Hide the form initially */
+        }
+
+        #userInputForm label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #userInputForm input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        #userInputForm input[type="submit"] {
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="userInputForm">
+        <label for="userInput">Enter your requirements:</label>
+        <input type="text" id="userInput" name="userInput">
+        <input type="submit" value="Show Exhibit">
+    </form>
+
+    <!-- Container for panorama -->
+    <div id="container" style="position: absolute; top: 0; left: 0; width: 100%; height: calc(100% - 40px); overflow: hidden;">
+        <br>Loading...<br><br>
+    </div>
+
+    <script type="text/javascript" src="pano2vr_player.js"></script>
+    <script type="text/javascript" src="skin.js"></script>
+
+    <script>fetch('descriptions.json')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => console.error('Error:', error));
+</script>
+
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script type="text/javascript">
+        // create the panorama player with the container
+        var pano = new pano2vrPlayer("container");
+        // add the skin object
+        var skin = new pano2vrSkin(pano);
+        // load the configuration
+        window.addEventListener("load", function () {
+            pano.readConfigUrlAsync("pano.xml");
+        });
+
+
+        if (window.navigator.userAgent.match(/Safari/i)) {
+  
+            function iosHfix(e) {
+                window.scrollTo(0, 1);
+                var container = document.getElementById("container");
+                var oh = container.offsetHeight;
+                document.documentElement.style.setProperty('height', '100vh');
+                if (oh != container.offsetHeight) {
+                    container.style.setProperty('height', "100%");
+                } else {
+                    container.style.setProperty('height', window.innerHeight + "px");
+                }
+                window.scrollTo(0, 0);
+                pano.setViewerSize(container.offsetWidth, container.offsetHeight);
+            };
+            setTimeout(iosHfix, 0);
+            setTimeout(iosHfix, 100);
+            window.addEventListener("resize", function () {
+                setTimeout(iosHfix, 0);
+                setTimeout(iosHfix, 500);
+                setTimeout(iosHfix, 1000);
+                setTimeout(iosHfix, 2000);
+            });
+        }
+
+// Function to change panorama by panoid - can be deleted
+let descriptions;
+
+// Function to fetch descriptions from JSON file
+fetch('descriptions.json')
+    .then(response => response.json())
+    .then(data => {
+        // Assign JSON data to descriptions variable
+        descriptions = data;
+    })
+    .catch(error => console.error('Error:', error));
+
+
+// Function to change panorama by panoid
+function changePanoramaById(panoid) {
+    // Check if panoid is valid and descriptions is available
+    if (panoid && descriptions) {
+        // Find the node details from descriptions
+        const nodeDetails = descriptions.find(node => node.panoid === panoid);
+
+        // Check if nodeDetails exist
+        if (nodeDetails) {
+            // Log the panoid and theta_x
+            console.log("Panoid:", panoid);
+            console.log("Theta_x:", nodeDetails.theta_x); // Access theta_x as number
+
+        } else {
+            console.error("Node details not found for panoid:", panoid);
+        }
+
+        // Call the openNext method with the specified panoid
+        pano.openNext("{" + panoid + "}", "");
+                    
+            // Set the new FOV, pan, and tilt
+            pano.setFov(nodeDetails.fov);
+            pano.setPan(nodeDetails.theta_x);
+            pano.setTilt(nodeDetails.theta_y);
+            console.log(nodeDetails.fov, nodeDetails.theta_x, nodeDetails.theta_y);
+    } else {
+        console.error("Invalid node id or descriptions:", panoid, descriptions);
+    }
+}
+
+
+
+// Event listener for form submission
+document.getElementById('userInputForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const userInput = document.getElementById('userInput').value;
+
+    fetch('/getResponse', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ userInput: userInput })
+        })
+        .then(response => response.json())
+        .then(data => {
+            //console.log('Response data:', data);
+            // Check if the response contains the highest-ranking exhibit node ID
+            if (data && data.highestRankingExhibit) {
+                // Change panorama to the node obtained from the response
+                changePanoramaById(data.highestRankingExhibit);
+            } else {
+                console.error("Invalid server response:", data);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+});
+
+ // Define the showForm function and attach it to the window object
+ function showForm() {
+            document.getElementById('userInputForm').style.visibility = 'visible';
+        }
+
+        window.showForm = showForm; // Attach showForm to the window object
+
+    </script>
+
+    <noscript>
+        <p><b>Please enable Javascript!</b></p>
+    </noscript>
+
+</body>
+
+</html>
