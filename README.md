@@ -22,4 +22,4 @@ Local environment values in `.env` should be set up before running the project.
 
 ## 📺 Demo video presented at the conference
 
-[Watch the demo](demo/LLM-AidedMuseumGuide_compressed.mov)
+[Watch the demo on ResearchGate](https://www.researchgate.net/publication/384141897_LLM-Aided_Museum_Guidemp4?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InB1YmxpY2F0aW9uIn19)
