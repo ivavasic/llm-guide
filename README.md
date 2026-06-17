@@ -24,5 +24,4 @@ Local environment values in `.env` should be set up before running the project.
 
 <video controls width="100%">
   <source src="demo/LLM-AidedMuseumGuide_compressed.mov" type="video/quicktime">
-  Your browser does not support the video tag.
 </video>
